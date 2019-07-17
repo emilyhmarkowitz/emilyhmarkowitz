@@ -1,9 +1,14 @@
 - layout: left
-  company: The Boring Company
-  link: boringcompany.com
-  job_title: Senior Network System Administrator
-  dates: November 2017 - Present
+  company: NOAA NMFS Office of Science and Technology, Division of Economics and Social Analysis, Contractor through ECS Federal, Silver Spring, MD.
+  link: https://www.fisheries.noaa.gov/about/office-science-and-technology
+  job_title: Environmental Policy Analyst
+  dates: February 2019 - Present
   quote: >
-   Solving 21st century problems by diging holes and making game changing products like the *not a flamethrower*
+   Manage the production and publishing of the annual, national level, Fisheries Economics of the US Report.
   description: | # this will include new lines to allow paragraphs
-    Every company needs its networks properly administered and The Boring Compay is no exception. Digging holes is hard and I play my part making sure the whole company stays connected. I lead a team of 5 people and enjoy driving the company to try new technologies.
+    - Manage the production and publishing of the annual, national level, Fisheries Economics of the US Report.
+    - Arrange progress calls with FEUS contributors to update production timelines, plan next steps, and delegate work.
+    - Produce annotated and reproducible in R scripts and markdown code that can be easily adapted to run a report for any year where data is available. Scripts have been re-written and developed to holistically and dynamically create copy-edit ready reports, including text, plots, footnotes, and citations. 
+    - Synthesize commercial, recreational, and census bureau datasets to develop state, regional, and national level report text, summary files, and JavaScript files for the interactive FEUS online tool. 
+    - Direct the inspection, editing, and EndNote databasing of 700 NOAA marine socio-economic publications listed in the FEUS report collected over the past 15 years. 
+    - Future: Develop RShiny applications to assist regions prepare statistics for the report. 

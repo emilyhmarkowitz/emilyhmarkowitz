@@ -1,12 +1,11 @@
 - layout: left
-  name: Stony Brook University, School of Marine and Atmospheric Sciences
+  name: Stony Brook University
   dates: 2015 - 2018
   qualification: MS Marine Science
   quote: >
     Nye Quantitative Fisheries Ecology Lab
   description: | # this will include new lines to allow paragraphs
-    Thesis: “Distribution Shifts Associated with Changing Environmental Parameters in Two Demersal Species: Summer Flounder (Paralichthys dentatus) & Black Sea Bass (Centropristis striata) on the NE US shelf”
-
+    - Thesis: “Distribution Shifts Associated with Changing Environmental Parameters in Two Demersal Species: Summer Flounder (Paralichthys dentatus) & Black Sea Bass (Centropristis striata) on the NE US shelf”
     - Developed environmental preference and habitat suitability models from the NOAA NEFSC survey dataset and Regional Oceanographic Modeling System (ROMS) output in MATLAB and R.
     - Incorporated results into survey abundance estimates and stock assessments. 
     - Also mentored a summer high school lab intern assessing Black Sea Bass (Centropristis striata) winter survival on the NE US shelf using MATLAB.

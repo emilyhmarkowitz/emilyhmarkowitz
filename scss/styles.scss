@@ -895,7 +895,12 @@ footer {
         }
     }
 
+
     #about {
+        text-align: center;
+    }
+
+    #awards {
         text-align: center;
 
         p {
@@ -963,6 +968,18 @@ footer {
     }
 
     .project-info {
+        position: relative;
+        margin: 0;
+        padding: 30px 15px;
+        top: auto;
+        transform: none;
+    }
+
+    .about-image {
+        display: none;
+    }
+
+    .about-info {
         position: relative;
         margin: 0;
         padding: 30px 15px;

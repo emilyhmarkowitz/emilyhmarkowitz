@@ -1,4 +1,4 @@
-# Dev Portfolio
+﻿# Dev Portfolio
 
 This repo contains an easy-to-customize personal dev portfolio template that was created with Sass and JavaScript. It is lightweight and fully responsive, as well as comes with the Bootstrap grid system and loaded with Font Awesome. The site is static and comes production ready if you just want to add your information and go. Alternatively, you can edit styles, colours, and scripts fairly easily. The site was built as modular as possible to make it easy to shift around styles and content.
 
@@ -152,12 +152,11 @@ The Education is just a series of `.education-block` classes with some details a
 
 ```HTML
 <div class="education-block">
-    <h3>University of Ottawa</h3>
-    <span class="education-date">Sept 2016 - Sept 2017</span>
-    <h4>Bachelor of Science in Computer Science</h4>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex.
-    </p>
+    <h3>Stony Brook University</h3>
+    <span class="education-date">Dec 2015 - May 2018</span>
+    <h4>Master's of Science in Marine Science</h4>
+    <b>Distribution Shifts Associated with Changing Environmental Parameters in Two Demersal Species: Summer Flounder (Paralichthys dentatus) & Black Sea Bass (Centropristis striata) on the NE US shelf</b>
+    <p>Shifts in fish population distributions are a growing concern for fishermen and fisheries management scientists. Habitat suitability models (HSMs) of summer flounder (Paralichthys dentatus) and black sea bass (Centropristis striata) were created using the fishery-independent Northeast Fisheries Science Center (NEFSC) bottom trawl survey data in generalized additive models and cumulative distribution functions. These analyses were used to probabilistically link where different length classes of these fish would likely be across different environmental variables in spring and fall. These different environmental variables (surface and bottom temperature and salinity, depth, and bottom type) have similar influences on life history of these two demersal, migratory, and commercially important species. Then, the HSMs were used to illustrate how the population’s distribution changed over time by hindcasting over regional ocean modeling systems (ROMS). The ROMS used in this analysis was a 1 Day Averaged ROMS for the Northeast US Coastline from 1958-2007. This hindcast will help further correct available catchability estimates in such a way that impacts estimates of stratified-mean biomass and abundance.</p>
 </div>
 ```
 
@@ -235,11 +234,11 @@ The Skills section is simply an unordered list that spits out a "Skill Cloud" wi
 
 ```HTML
 <ul>
-    <li>JavaScript</li>
+    <li>Javascript</li>
     <li>Python</li>
-    <li>Ruby</li>
-    <li>Go</li>
-    <li>Node.js</li>
+    <li>R</li>
+    <li>Matlab</li>
+    <li>HTML</li>
 </ul>
 ```
 

@@ -1,8 +1,0 @@
-- layout: top-middle
-  name: GitHub Projects
-  link: https://www.fisheries.noaa.gov/national/marine-mammal-protection/marine-mammal-acoustic-technical-guidance
-  github: https://github.com/emilyhmarkowitz/MarineMammalAcousticThresholds
-  quote: >
-    blah
-  description: | # this will include new lines to allow paragraphs
-    blah

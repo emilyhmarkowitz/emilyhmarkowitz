@@ -1,4 +1,4 @@
-# EMILY MARKOWITZ
+# EMILY (EM) MARKOWITZ
 
 ## Quantitative Marine Ecologist
 

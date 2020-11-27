@@ -1,8 +1,14 @@
 # Emily (Em) Markowitz
 
-## Research Fisheries Biologist at the Alaska Fisheries Science Center, Groundfish Assessment Program's Eastern Bering Sea Survey Group
+## Research Fisheries Biologist 
+
+## Alaska Fisheries Science Center
+
+## Groundfish Assessment Program's Eastern Bering Sea Survey Group
 
 Learn more about me! [Find my website here](https://emilyhmarkowitz.github.io/emilyhmarkowitz/)
+
+# All work posted on this GitHub are subject to NOAA Fisheries' Standards
 
 ## NOAA README
 

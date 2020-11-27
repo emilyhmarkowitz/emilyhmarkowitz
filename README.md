@@ -1,4 +1,4 @@
-# EMILY (EM) MARKOWITZ
+# Emily (Em) Markowitz
 
 ## Research Fisheries Biologist at the Alaska Fisheries Science Center, Groundfish Assessment Program's Eastern Bering Sea Survey Group
 

@@ -1,10 +1,10 @@
 # Emily (Em) Markowitz
 
-## Research Fisheries Biologist 
+### Research Fisheries Biologist 
 
-## Alaska Fisheries Science Center
+### Alaska Fisheries Science Center
 
-## Groundfish Assessment Program's Eastern Bering Sea Survey Group
+### Groundfish Assessment Program's Eastern Bering Sea Survey Group
 
 Learn more about me! [Find my website here](https://emilyhmarkowitz.github.io/emilyhmarkowitz/)
 

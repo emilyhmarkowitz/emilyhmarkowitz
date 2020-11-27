@@ -8,7 +8,7 @@
 
 Learn more about me! [Find my website here.](https://emilyhmarkowitz.github.io/emilyhmarkowitz/)
 
-# All work posted on this GitHub are subject to NOAA Fisheries' Standards
+# All work posted on this GitHub is subject to NOAA Fisheries' Standards
 
 ## NOAA README
 

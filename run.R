@@ -315,7 +315,7 @@ rmarkdown::render("cv/cv.rmd",
 
 # Convert to PDF using Pagedown
 pagedown::chrome_print(input = tmp_html_cv_loc,
-                       output = "_site/markowitz_cv.pdf")
+                       output = "docs/markowitz_cv.pdf")
 
 # Render Site ------------------------------------------------------------------
 
@@ -331,7 +331,7 @@ sections <- sections[sections != "other"]
 
 for (i in 1:length(sections)) {
   rmarkdown::render(paste0("./", sections[i], ".Rmd"),
-                    output_dir = "./_site/",
+                    output_dir = "./docs/",
                     output_file = paste0(sections[i], ".html"))
 }
 

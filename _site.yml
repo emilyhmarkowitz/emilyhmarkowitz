@@ -1,6 +1,6 @@
 name: "Emily Markowitz" # CHANGE HERE
 description: "Emily Markowitz"
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   title: "<p style='font-family:Roboto Slab'><img id=\"logo\" style=\"width: 35px; display: inline-block; margin: 0px 0px\" src=\"images/logo.png\" /> Emily Markowitz </p>"
   logo:

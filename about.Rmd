@@ -16,7 +16,7 @@ imgsize <- "100px"
 sections <- c("about")
 i<-1
 rmarkdown::render(paste0("./", sections[i], ".Rmd"),
-                output_dir = "./_site/",
+                output_dir = "./docs/",
                 output_file = paste0(sections[i], ".html"))
 ```
 
@@ -115,7 +115,7 @@ places %>%
 
 I'm a Research Fisheries Biologist in the Eastern Bering Sea Survey Team in the Groundfish Assessment Group at **NOAA Fisheries Alaska Fisheries Science Center** (AFSC) in Seattle, WA. Before AFSC, I worked in Silver Spring, MD where I was a contractor for the **Office of Science and Technology** (OST) in the Economics and Social Analysis Division providing statistical and data visualization expertise for the national annual Fisheries Economics of the US report. Before that, I was a **John A. Knauss Marine Policy Fellow** working in OST’s Assessment and Monitoring Division’s Protected Species Science Branch working on sea turtle issues and marine mammal acoustics. I obtained my BS and MS degrees in quantitative fisheries ecology from Stony Brook University. My **thesis** research focused on the development of species distribution models that combined fisheries-independent bottom trawl survey data with oceanographic models to predict suitable habitat and distributional shifts. 
 
-**I grew up** in New York's Hudson Valley and have a deep appreciation for the **Hudson River**. Learning as a kid about the role this iconic river played in making New York City, the critters, like the hudson sturgeon, who dwell in it's mucky bottom, and how changes in this ecosystem helped make the case for landmark environmental legislation and conservation were important seeds of inspiration for the work I do today. 
+**I grew up** in New York's Hudson Valley and have a deep appreciation for the **Hudson River**. This iconic river, besides being the best sixth borough of NYC and beautiful, is home to my favorite fish friends, like the Hudson sturgeon, and has seen changes in its ecosystem with overfishing and pollution that lead to important landmark environmental legislation and conservation, heavily inspiring the work I do today. 
 
 In my **spare time**, I enjoy hiking and camping, enthusiastically bantering with classrooms about all things science and how cool the ocean is, and studying my fish friends through water color or clay! 
 

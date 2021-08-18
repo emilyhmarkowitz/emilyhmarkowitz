@@ -1,0 +1,96 @@
+---
+title: "What's Em working on?"
+description: 'Research Interests'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, 
+                      error = FALSE, message = FALSE)
+# date: "`r Sys.Date()`"
+```
+
+
+```{r, include = FALSE, eval = FALSE}
+#expressly for troubleshooting scripts
+sections <- c("research")
+i<-1
+rmarkdown::render(paste0("./", sections[i], ".Rmd"),
+                output_dir = "./_site/",
+                output_file = paste0(sections[i], ".html"))
+```
+
+
+```{r}
+dat0 <- cv %>% 
+  dplyr::filter(page %in% c("research"))  %>%
+  dplyr::arrange(section_long) %>%
+  dplyr::mutate(description_bullets = paste0(" - ", loc, 
+                                             ifelse(is.na(Links_inline),
+                                                    "",
+                                                    paste0("\n - ", Links_inline))))
+
+dat0$content <- glue::glue('
+
+<div class = "row">
+<div class = "col-md-2">
+
+![]({dat0$img}){{width="100px"}}
+
+</div>
+
+<div class = "col-md-10">
+
+### **{dat0$title}**. 
+
+{dat0$description_bullets} 
+
+<br>
+
+</div>
+</div>
+
+')
+
+dat <- data.frame()
+
+for (i in unique(dat0$section_long)) {
+
+  a <- dat0 %>%
+      dplyr::filter(section_long == i)
+
+  dat <- rbind.data.frame(dat,
+                          data.frame("section_long" = i,
+                                     "content" = paste(glue::glue('{a$content}
+\n\n'), collapse = "")))
+}
+
+```
+
+I believe there is a clear and present need across all science fields to make workflows more efficient, improve data management, and make our results accessible and digestible to general audiences. The first step toward this is to embrace analysis-to-product workflows in programs like R, and the second step is to share! Please feel free to check out my GitHub for code, make additions/edits, or let me know if you have comments. *That's how we make the best available science!*
+
+
+```{r, results='asis'}
+
+# 'Glue' your content together
+str <- glue::glue('<br>
+
+<div class="boxed">
+
+## {dat$section_long}
+
+<br>
+
+{dat$content}
+
+</div>
+
+')
+
+# Paste your formatted and finished content in your document. 
+str 
+
+
+```
+
+
+

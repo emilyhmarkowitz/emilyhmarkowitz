@@ -1,1 +1,10 @@
 node_modules/
+.Rproj.user
+/old
+/data
+.secrets
+/images/old
+/images/other
+/icons
+/notes.R
+

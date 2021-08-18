@@ -1,0 +1,59 @@
+---
+title: 'Welcome!'
+description: "Welcome!"
+output:
+  html_document:
+    css: "styles_bunker.css"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, 
+                      error = FALSE, message = FALSE)
+```
+
+```{r, include = FALSE, eval = FALSE}
+#expressly for troubleshooting scripts, will not run in markdown (eval = FALSE)
+sections <- c("index")
+i<-1
+rmarkdown::render(paste0("./", sections[i], ".Rmd"),
+                output_dir = "./_site/",
+                output_file = paste0(sections[i], ".html"))
+```
+
+
+<div class = "row">
+<div class = "col-md-7">
+
+<br>
+
+<!-- <div style="color:white;" ><h1><b>Emily Markowitz</b></h1></div> -->
+
+<div class="top-right" style="float: right; margin-right: 120px; color:white;" >
+  <h1 style="font-family: 'Roboto Slab', serif; font-weight: 900;" ><b>Emily Markowitz</b></h1>
+  <h3 style="color:white;" ><b>Research Fisheries Biologist</b></h3>
+  <h5><i>A puzzler living a fish themed life</i></h5>
+  <br>
+  <p><i><font size="-1">NOAA Fisheries Alaska Fisheries Science Center<br>
+  Resource Assessment and Conservation Engineering Division<br>
+  Groundfish Assessment Program<br>
+  Eastern Bering Sea Survey Group<br>
+  Seattle, WA 98195</font></i></p>
+</div>
+
+</div>
+
+<div class = "col-md-4">
+
+
+![](images/profile.png){width=250px}
+
+</div>
+
+<div class = "col-md-1">
+
+</div>
+</div>
+
+<br>
+
+

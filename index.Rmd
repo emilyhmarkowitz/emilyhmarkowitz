@@ -1,5 +1,5 @@
 ---
-title: 'Welcome!'
+title: ' '
 description: "Welcome!"
 output:
   html_document:
@@ -18,6 +18,9 @@ i<-1
 rmarkdown::render(paste0("./", sections[i], ".Rmd"),
                 output_dir = "./_site/",
                 output_file = paste0(sections[i], ".html"))
+
+#   <h5><i>A puzzler living a fish themed life</i></h5>
+
 ```
 
 
@@ -31,7 +34,6 @@ rmarkdown::render(paste0("./", sections[i], ".Rmd"),
 <div class="top-right" style="float: right; margin-right: 120px; color:white;" >
   <h1 style="font-family: 'Roboto Slab', serif; font-weight: 900;" ><b>Emily Markowitz</b></h1>
   <h3 style="color:white;" ><b>Research Fisheries Biologist</b></h3>
-  <h5><i>A puzzler living a fish themed life</i></h5>
   <br>
   <p><i><font size="-1">NOAA Fisheries Alaska Fisheries Science Center<br>
   Resource Assessment and Conservation Engineering Division<br>

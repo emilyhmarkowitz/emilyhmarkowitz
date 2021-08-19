@@ -17,9 +17,9 @@ navbar:
     - text: "Papers"
       icon: fa-newspaper
       href: papers.html
-    - text: "Experiance"
+    - text: "Experience"
       icon: fa-briefcase
-      href: experience.html
+      href: Experience.html
     - text: "Awards"
       icon: fa-award
       href: awards.html

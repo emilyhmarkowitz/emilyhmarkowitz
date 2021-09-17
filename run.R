@@ -4,6 +4,8 @@
 # August 2021
 #
 
+# source("./run.R")
+
 # Libraries --------------------------------------------------------------------
 
 PKG <- c(
@@ -27,140 +29,6 @@ for (p in PKG) {
     require(p,character.only = TRUE)}
 }
 
-
-# Knowns -----------------------------------------------------------------------
-
-months <- c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
-
-# Functions --------------------------------------------------------------------
-
-secttitle <- function(txt = "", img = NULL) {
-
-  if (!is.null(img)){
-    str <- paste0("## ![](./images/",img,"){width='50px'} *",txt,"*")
-  } else {
-    str <- paste0("<br>
-
-                ## *",txt,"*")
-  }
-  return(str)
-}
-
-group_rows <- function (dat, col) {
-
-  groups <- data.frame()
-  gr0 <- as.character(unlist(unique(dat[,col])))
-
-  for (i in 1:length(gr0)) {
-    gr <- gr0[i]
-    gr_r <- which(dat[,col] == gr)
-    if (length(gr_r) == 1) {
-      gr_r <- c(gr_r, gr_r)
-    } else {
-      gr_r <- c(gr_r[1], gr_r[length(gr_r)])
-    }
-    groups <- rbind.data.frame(groups,
-                               data.frame(group = gr,
-                                          st = gr_r[1],
-                                          end = gr_r[2]))
-  }
-
-  return(groups)
-}
-
-
-#' Check that your links work
-#'
-#' @param URLs A vector of strings with website URLs, local directories, and/or local files.
-#' @param quiet default = FALSE. Will not return messages if = TRUE.
-#'
-#' @return
-#' @export
-#'
-#' @examples
-#' # Use test page URL:
-#'   URLs <- c(
-#'     "https://github.com",
-#'     "http://steipe.biochemistry.utoronto.ca/abc/assets/testCheckLinks.html",
-#'     "./",
-#'     "./ex.txt",
-#'     "./aa/")
-#'  checkLinks(URLs)
-checkLinks <- function(URLs,
-                       quiet = FALSE) {
-
-  # https://stackoverflow.com/questions/31214361/what-is-the-r-equivalent-for-excel-iferror
-
-  URLs <- URLs[!is.na(URLs)] # remove empty rows
-
-  notworking <- c()
-
-  for (i in 1:length(URLs)){
-
-    # Fix URLs if local directories
-    URL <- URLs[i]
-
-    if (substr(x = URL, start = 1, stop = 2) == "./") {
-      if (URL == "./") {
-        URL <- gsub(replacement = getwd(), pattern = "./",
-                    x = URL, fixed = TRUE, useBytes = TRUE)
-      } else {
-        URL <- gsub(replacement = paste0(getwd(), "/"), pattern = "./",
-                    x = URL, fixed = TRUE, useBytes = TRUE)
-      }
-
-    }
-
-    if (substr(x = URL, start = nchar(URL), stop = nchar(URL)) == "/") {
-      URL <- substr(x = URL, start = 1, stop = (nchar(URL)-1))
-    }
-
-    # download page and access URLs. If does not exist, collect it in "badurl"
-    myPage <- try(expr = xml2::read_html(URL), silent = T)
-    if (grepl(pattern = "Error", x = myPage[1],
-              fixed = TRUE, useBytes = TRUE) &
-        isFALSE(file.exists(URL))) {
-
-      notworking <- c(notworking, URL)
-    }
-  }
-
-  if (quiet == FALSE){
-    if (length(notworking) == 0) {
-      print("All links are good!")
-    } else {
-      print(paste0("There ",
-                   ifelse(length(notworking)>1, "are ", "is "),
-                   length(notworking),
-                   " bad link",
-                   ifelse(length(notworking)>1, "s", ""),
-                   "."))
-    }
-  }
-
-  return(notworking)
-}
-
-
-
-copyedit <- function(format,
-                     pattern,
-                     x) {
-  for (i in 1:length(pattern)){
-    if (format == "italics"){
-      xx <- gsub(pattern = pattern[i],
-                 replacement = paste0("*", pattern[i], "*"),
-                 x = x)
-    }
-
-    if (format == "bold"){
-      xx <- gsub(pattern = pattern[i],
-                 replacement = paste0("**", pattern[i], "**"),
-                 x = x)
-    }
-  }
-  return(xx)
-}
 
 
 # Sign into google drive -------------------------------------------------------

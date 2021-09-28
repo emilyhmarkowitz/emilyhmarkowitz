@@ -11,15 +11,15 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE,
 
 ```{r, include = FALSE, eval = FALSE}
 #expressly for troubleshooting scripts, will not run in markdown (eval = FALSE)
-# sections <- c("teaching")
-# i<-1
-# rmarkdown::render(paste0("./", sections[i], ".Rmd"),
-#                 output_dir = "./docs/",
-#                 output_file = paste0(sections[i], ".html"))
+sections <- c("teaching")
+i<-1
+rmarkdown::render(paste0("./", sections[i], ".Rmd"),
+                output_dir = "./docs/",
+                output_file = paste0(sections[i], ".html"))
 ```
 
 
-*[Inspirational thought]*
+*We can take it upon ourselves to build an inclusive community for teams to collaborate with and learn from. Internally-driven investment in professional development extends the impact of a team member and takes the weight off the organization’s experts as new users are able to take on more tasks. *
 
 
 ```{r}
@@ -31,7 +31,7 @@ dat0 <- cv %>%
                                                     paste0("\n - ", Links_inline))))
 
 dat1 <- data.frame(section_long = dat0$section_long,
-                   content = glue::glue("
+                  content = glue::glue("
 
 **{dat0$title}**. {dat0$timeline}. {dat0$loc}.
 
@@ -40,21 +40,20 @@ dat1 <- data.frame(section_long = dat0$section_long,
 "))
 
 dat1 <- dat1 %>%
-  dplyr::mutate(content = 
-                  ifelse(substr(x = content,
-                                start = (nchar(content)-5),
-                                stop = nchar(content)) == "\n -  \n",
-                         substr(x = content,
-                                start = 1,
-                                stop = (nchar(content)-6)),
-                         content))
+  dplyr::mutate(content = ifelse(substr(x = content,
+                                        start = (nchar(content)-5),
+                                        stop = nchar(content)) == "\n -  \n",
+                                 substr(x = content,
+                                        start = 1,
+                                        stop = (nchar(content)-6)),
+                                 content))
 
 dat <- data.frame()
 
 for (i in unique(dat0$section_long)) {
   
   a <- dat1 %>% 
-    dplyr::filter(section_long == i) 
+      dplyr::filter(section_long == i) 
   
   dat <- rbind.data.frame(dat, 
                           data.frame("section_long" = i, 
@@ -62,14 +61,13 @@ for (i in unique(dat0$section_long)) {
 \n\n'), collapse = "")))
 }
 
-
-# an image for each section
-dat$img <- c("img/yellowfin_sole.png", 
-             "img/yellowfin_sole.png", 
-             "img/yellowfin_sole.png")
-dat$img_txt <- c("Yellowfin sole are cool.", 
-                 "Yellowfin sole are cool.", 
-                 "Yellowfin sole are cool.")
+dat$img <- c("images/wise.jpg",
+             "images/expertisin.jpg", 
+             "images/outreach.jpg")
+dat$img_txt <- c("Stony Brook WISE (Women in Science and Engineering) working up some of the day’s data from our mini-study on blue crab temperature-dependent aerobic and anaerobic metabolism.", 
+                 "Visiting scientist at the Smithsonian National Museum of Natural History's Expert Is In Program. There, we talked about about how fish are caught in recreational and commercial fisheries, fishing gear, and sustainable seafood.", 
+                 "Talking to students at the Wenonah elementary school science fair about some fish most people never get to see." 
+                 )
 ```
 
 

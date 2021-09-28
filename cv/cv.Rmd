@@ -1,6 +1,6 @@
 ---
-title: "`r paste0(yourname, ' - CV')`"
-author: "`r yourname`"
+title: "Emily Markowitz - CV"
+author: Emily Markowitz
 date: "`r format(Sys.Date(), format='%B %d, %Y')`"
 params:
   pdf_mode:
@@ -18,6 +18,9 @@ knitr::opts_chunk$set(
   results='asis', 
   echo = FALSE
 )
+
+# library(magrittr) # For the pipe
+# source("functions_cv.r")
 
 CV <- readr::read_rds('cached_positions.rds')
 CV$entries_data <- 
@@ -43,7 +46,21 @@ if(params$pdf_mode) {
 Aside
 ================================================================================
 
-![](../img/profile.png)
+```{r}
+# Build interactive network of positions colored by section
+# and connected if they occurred in the same year
+# datadrivencv::build_network_logo(CV$entries_data)
+```
+
+![](../images/profile.png)
+
+```{r}
+# if(params$pdf_mode){
+#   cat("View this CV online with links at _https://emilyhmarkowitz.github.io/emilyhmarkowitz/cv/_")
+# } else {
+#   cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/emilyhmarkowitz/cv/raw/master/markowitz_cv.pdf)")
+# }
+```
 
 Contact {#contact}
 --------------------------------------------------------------------------------
@@ -67,7 +84,7 @@ Last updated on `r format(Sys.Date(), format='%B %d, %Y')`.
 Main
 ================================================================================
 
-**`r yourname`** {#title}
+**Emily Markowitz** {#title}
 --------------------------------------------------------------------------------
 
 ```{r}

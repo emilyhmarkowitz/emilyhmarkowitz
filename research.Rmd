@@ -1,5 +1,5 @@
 ---
-title: "What's Em working on?"
+title: "Research Interests"
 description: 'Research Interests'
 ---
 
@@ -12,11 +12,11 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE,
 
 ```{r, include = FALSE, eval = FALSE}
 #expressly for troubleshooting scripts
-sections <- c("research")
-i<-1
-rmarkdown::render(paste0("./", sections[i], ".Rmd"),
-                output_dir = "./docs/",
-                output_file = paste0(sections[i], ".html"))
+# sections <- c("research")
+# i<-1
+# rmarkdown::render(paste0("./", sections[i], ".Rmd"),
+#                 output_dir = "./docs/",
+#                 output_file = paste0(sections[i], ".html"))
 ```
 
 
@@ -66,8 +66,6 @@ for (i in unique(dat0$section_long)) {
 
 ```
 
-I believe there is a clear and present need across all science fields to make workflows more efficient, improve data management, and make our results accessible and digestible to general audiences. The first step toward this is to embrace analysis-to-product workflows in programs like R, and the second step is to share! Please feel free to check out my GitHub for code, make additions/edits, or let me know if you have comments. *That's how we make the best available science!*
-
 
 ```{r, results='asis'}
 
@@ -88,8 +86,6 @@ str <- glue::glue('<br>
 
 # Paste your formatted and finished content in your document. 
 str 
-
-
 ```
 
 

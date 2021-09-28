@@ -1,26 +1,62 @@
 # Metadata ---------------------------------------------------------------------
-# Emily Markowitz' Website
+# Personal Website
 # Developed by Emily Markowitz, for myself
-# August 2021
-#
+# Sept 2021
 
+# Directions -------------------------------------------------------------------
+# simply run this ONE line of code to get your website!
 # source("./run.R")
 
+# Notes
+# 1. Check that your gitignore includes your data folder, so it only shares what you want it to show. 
+# 2. Make copies of your own bio and cv_data google drive files and start filling them in. 
+# 3. Define yourname and yourwebsitelink
+# 4. Rename pages as you like, but you must have an index and an about page. 
+
+# Knowns -----------------------------------------------------------------------
+
+yourname <- "YOUR NAME" # "Yellowfin Sole"#
+yournames <- c(yourname, 
+               "NAME, YOUR") # e.g., for paper authorships, as listed in cv_data.xlsx
+yourwebsitelink <- "https://EmilyMarkowitz-NOAA.github.io/personal_website_cv_template/"
+
+# Fine tuned editing
+
+title_ital <- c( # things that should always be italized in titles. 
+  "Cum Laude",
+  "NOAAS SHIP NAME")
+desc_ital <- c("et al.") # things that should always be italized in descriptions. 
+desc_bullet_ital <- c("STUDY SPP",
+                   "NOAAS SHIP NAME")
 # Libraries --------------------------------------------------------------------
 
 PKG <- c(
-  # "distill",
-  "glue",
-  # "kableExtra",
-  # "formattable",
-  # "flextable",
+  # page management
   "rmarkdown",
-  "dplyr",
-  "magrittr",
   "pagedown",
+  
+  # tidyverse
+  "dplyr",
+  "glue",
+  "magrittr",
   "readr",
   "readxl",
-  "xml2" # check urls
+  
+  # working with URLS
+  "xml2", # check urls
+  
+  # mapping
+  "leaflet",
+  "leafpop",
+  "maps", 
+  
+  # google drive
+  "googledrive",
+  "googlesheets4", # seems redundant, but maybe I'll get rid of this later
+  "readtext", # for reading docx files
+  
+  # icons
+  "fontawesome" #devtools::install_github("rstudio/fontawesome")
 )
 
 for (p in PKG) {
@@ -33,41 +69,39 @@ for (p in PKG) {
 
 # Sign into google drive -------------------------------------------------------
 
-library(googledrive)
 googledrive::drive_deauth()
 googledrive::drive_auth()
 1
 
-# googledrive::drive_download(
-#   file = as_id("1fWyNAjxYFugM44LVqqVdmrndaRDWWBmEERcNrGMKnVI"),
-#   overwrite = TRUE,
-#   path = "./data/data_cv"
-# )
-
-# cv0 <- read_csv(paste0(getwd(), "/data/data_cv.csv"))
-# cv0 <- readxl::read_xlsx(path = "data/data_cv.xlsx",
-#                          sheet = "entries",
-#                          skip = 1)
-
-# # Since you seem to be using R, here is an R-based solution. You need the {readxl}, {purrr}, and {readr} packages. I am “namespacing” all functions, so you know, where they are from. I am using the example Excel file from {readxl}.
-# path_to_xlsx <- "data/data_cv.xlsx"
-# # This Excel file has 4 sheets. The names of the sheets are read by excel_sheets.
-# sheet_names <- readxl::excel_sheets(path_to_xlsx)
-# # Now we import all excel sheets into one list.
-# sheets <- purrr::map(sheet_names, ~ readxl::read_excel(path_to_xlsx, sheet = .x))
-# # We get a list of 4 data.frames or tibbles. Let’s name them.
-# base::names(sheets) <- sheet_names
-# # Now export all tibbles from the list to separate CSVs in one go.
-# purrr::iwalk(sheets, ~ readr::write_excel_csv2(x = .x,
-#                                                file = paste0("data/", .y, ".csv")))
-
 # Load Data --------------------------------------------------------------------
 
+# How to find the google drive ID of a document
+# Google Drive File ID is a unique identifier of the file on Google Drive. File IDs are stable throughout the lifespan of the file, even if the file name changes.
+# 
+# To locate the File ID, right-click on the name of the file, choose the Get Shareable Link option, and turn on Link Sharing if needed.
+# 
+# You will see the link with a combination of numbers and letters at the end, and what you see after `id =`  is the File ID.
+# https://drive.google.com/open?id=***ThisIsFileID***
+#   
+# If your file is already open in a browser, you can obtain File ID from its link:
+# https://docs.google.com/spreadsheets/d/***ThisIsFileID***/edit#gid=123456789 
+
+
+# EXAMPLE Word document with Bio
+# Example: https://docs.google.com/document/d/1MbDrWQMzXn_3pxpuEnlHiX0juOhvwQtGGUrRLkkrczQ/edit?usp=sharing
+googledrive::drive_download(file = as_id("1MbDrWQMzXn_3pxpuEnlHiX0juOhvwQtGGUrRLkkrczQ"), 
+                              type = "docx", 
+                              overwrite = TRUE, 
+                              path = paste0("./data/bio"))
+1
+
+# EXAMPLE Spreadsheet with CV data
+# https://docs.google.com/spreadsheets/d/1fj0-LgxIgHC9qprjDfoyFqOUtUcWGMbMS28mCWf6as8
 source("cv/functions_cv.R")
 cv_data <- create_CV_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1RM6K0sWYGGlWkFTHQHR9Y8rGPGPscVSYHWf4fSJDz1g",
+  data_location = "https://docs.google.com/spreadsheets/d/1fj0-LgxIgHC9qprjDfoyFqOUtUcWGMbMS28mCWf6as8",
   cache_data = FALSE)
-
+1
 dat0 <- cv_data$entries_data
 
 # Edit Data --------------------------------------------------------------------
@@ -95,21 +129,17 @@ dat0 <- dat0 %>%
 
 dat0$description_1 <- copyedit(
   format = "bold",
-  pattern = c("EH Markowitz", "Markowitz, EH"),
+  pattern = c(yournames),
   x = dat0$description_1)
 
 dat0$description_1 <- copyedit(
   format = "italics",
-  pattern = c("et al."),
+  pattern = desc_ital,
   x = dat0$description_1)
 
 dat0$title <- copyedit(
   format = "italics",
-  pattern = c(
-    "Cum Laude",
-    "R/V Oceanus",
-    "R/V Seawolf",
-    "NOAAS Gordon Gunter"),
+  pattern = title_ital,
   x = dat0$title)
 
 # Clean up entries dataframe to format we need it for printing
@@ -138,13 +168,7 @@ dat0 <- dat0 %>%
 
 dat0$description_bullets <- copyedit(
   format = "italics",
-  pattern = c("Paralichthys dentatus",
-              "Centropristis striata",
-              "Merluccius productus",
-              "Disidicus gigas",
-              "R/V Oceanus",
-              "R/V Seawolf",
-              "NOAAS Gordon Gunter"),
+  pattern = desc_bullet_ital,
   x = dat0$description_bullets)
 
 dat0 <- dat0 %>%
@@ -183,7 +207,7 @@ rmarkdown::render("cv/cv.rmd",
 
 # Convert to PDF using Pagedown
 pagedown::chrome_print(input = tmp_html_cv_loc,
-                       output = "docs/markowitz_cv.pdf")
+                       output = "docs/cv.pdf")
 
 # Render Site ------------------------------------------------------------------
 

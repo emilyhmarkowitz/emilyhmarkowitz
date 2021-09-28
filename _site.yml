@@ -1,15 +1,15 @@
-name: "Emily Markowitz" # CHANGE HERE
-description: "Emily Markowitz"
+name: "`r yourname`"
+description: "`r yourname`"
 output_dir: "docs"
 navbar:
-  title: "<p style='font-family:Roboto Slab'><img id=\"logo\" style=\"width: 35px; display: inline-block; margin: 0px 0px\" src=\"images/logo.png\" /> Emily Markowitz </p>"
+  title: "<p><img id=\"logo\" style=\"width: 35px; display: inline-block; margin: 0px 0px\" src=\"img/logo.png\" /> YOUR NAME </p>"  
   logo:
-    image: images/logo.png
-    href: https://emilyhmarkowitz.github.io/emilyhmarkowitz/
+    image: img/logo.png
+    href: "`r yourwebsitelink`"  
   search: true
   right:
     - text: "Hi!"
-      icon: fa-coffee
+      icon: fa-coffee # check out favicons online for free graphics 
       href: about.html
     - text: "Research"
       icon: fa-fish
@@ -28,9 +28,9 @@ navbar:
       href: teaching.html
     - text: "CV"
       icon: fa-file-pdf
-      href: markowitz_cv.pdf
+      href: cv.pdf
 favicon: favicon.ico
-base_url: https://emilyhmarkowitz.github.io/emilyhmarkowitz/
+base_url: "`r yourwebsitelink`"  
 output:
   html_document:
     theme: flatly # “cerulean”, “cosmo”, “flatly”, “journal”, “lumen”, “paper”, “readable”, “sandstone”, “simplex”, “spacelab”, “united”, and “yeti”
@@ -43,4 +43,4 @@ output:
     css: "styles.css"
 editor_options:
   chunk_output_type: console
-repository_url: https://github.com//emilyhmarkowitz.github.io
+repository_url: "`r yourwebsitelink`"  

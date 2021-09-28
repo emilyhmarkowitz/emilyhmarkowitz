@@ -11,20 +11,18 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE,
 
 ```{r, include = FALSE, eval = FALSE}
 #expressly for troubleshooting scripts
-sections <- c("papers")
-i<-1
-rmarkdown::render(paste0("./", sections[i], ".Rmd"),
-                output_dir = "./docs/",
-                output_file = paste0(sections[i], ".html"))
+# sections <- c("papers")
+# i<-1
+# rmarkdown::render(paste0("./", sections[i], ".Rmd"),
+#                 output_dir = "./docs/",
+#                 output_file = paste0(sections[i], ".html"))
 ```
   
 ```{r}
-
 dat0 <- cv %>% 
   dplyr::filter(page %in% "papers") %>% 
   dplyr::mutate(content = paste0(loc, ". *", start, "*. **",
                                    title, ".** ")) %>%
-  # dplyr::mutate(content = ifelse(section != "presentations", content)) %>%
   dplyr::mutate(content = ifelse((section == "publications" & description_1 != "N/A"), 
                                  paste0(content, description_1), 
                                  content)) %>%
@@ -70,21 +68,11 @@ for (i in unique(dat0$section_long)) {
   
   }
 }
-
-# dat$img <- c("images/greatsouthbay.jpg", 
-#              "images/talks.jpg")
-# dat$img_txt <- c("Field work in Great South Bay, Long Island, NY.", 
-#                  "Emily presents her Marine Mammal Acoustic Threshold RShiny App at the International Marine Conservation Congress, Kuching, Malaysia.")
-
-# papers <- dat2
-
 ```
 
 
 ```{r, results='asis'}
-
 # 'Glue' your content together
-
 str <- ""
 
 for (i in unique(dat2$section_long)){

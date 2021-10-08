@@ -14,14 +14,12 @@ output:
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(
-  results='asis', 
-  echo = FALSE
-)
+knitr::opts_chunk$set(results='asis', echo = FALSE)
+```
 
+```{r}
 # library(magrittr) # For the pipe
 # source("functions_cv.r")
-
 CV <- readr::read_rds('cached_positions.rds')
 CV$entries_data <- 
   CV$entries_data %>%

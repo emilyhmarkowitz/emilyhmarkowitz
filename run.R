@@ -65,7 +65,7 @@ googledrive::drive_auth()
 
 source("cv/functions_cv.R")
 cv_data <- create_CV_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1RM6K0sWYGGlWkFTHQHR9Y8rGPGPscVSYHWf4fSJDz1g",
+  data_location = "https://docs.google.com/spreadsheets/d/1Mm2yJiEy4LAdWRrXClkJeiVeP2OBxeeDLZ3Yzm7d1WI",
   cache_data = FALSE)
 
 dat0 <- cv_data$entries_data

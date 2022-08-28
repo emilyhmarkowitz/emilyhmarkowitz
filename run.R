@@ -14,6 +14,8 @@ PKG <- c(
   # "kableExtra",
   # "formattable",
   # "flextable",
+  "leaflet",
+  "leafpop",
   "rmarkdown",
   "dplyr",
   "magrittr",

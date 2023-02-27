@@ -124,6 +124,13 @@ CV %<>% print_text_block('teaching_experience_aside')
 CV %<>% print_section('teaching')
 ```
 
+Open Science {data-icon=unlock}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('open_sci')
+```
+
 Mentorship {data-icon=user-plus}
 --------------------------------------------------------------------------------
 
@@ -137,7 +144,6 @@ Outreach {data-icon=ship}
 ```{r}
 CV %<>% print_section('outreach')
 ```
-
 
 Publications  {data-icon=newspaper}
 --------------------------------------------------------------------------------

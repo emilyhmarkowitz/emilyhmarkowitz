@@ -38,8 +38,8 @@ for (i in unique(dat0$section_long)) {
 }
 
 # dat$content <- temp
-dat$img <- c("images/panel.jpg", 
-             "images/AMS.jpg")
+dat$img <- c("images/AMS.jpg", 
+             "images/panel.jpg")
 dat$img_txt <- c("The Stony Brook University Earthstock sustainability alumni panel.", 
                  "American Meteorological Society Early Career Leadership Academy in-person summit in Stone Mountain, GA, 2019.")
 

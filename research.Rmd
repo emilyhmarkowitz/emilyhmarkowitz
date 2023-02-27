@@ -24,10 +24,12 @@ rmarkdown::render(paste0("./", sections[i], ".Rmd"),
 dat0 <- cv %>% 
   dplyr::filter(page %in% c("research"))  %>%
   dplyr::arrange(section_long) %>%
-  dplyr::mutate(description_bullets = paste0(" - ", loc, 
-                                             ifelse(is.na(Links_inline),
-                                                    "",
-                                                    paste0("\n - ", Links_inline))))
+  dplyr::mutate(description_bullets = paste0(" - ", loc#, 
+                                             # ifelse(is.na(Links_inline),
+                                             #        "",
+                                             #        paste0("\n - ", Links_inline))
+                                             )
+                )
 
 dat0$content <- glue::glue('
 
@@ -58,9 +60,10 @@ for (i in unique(dat0$section_long)) {
   a <- dat0 %>%
       dplyr::filter(section_long == i)
 
-  dat <- rbind.data.frame(dat,
-                          data.frame("section_long" = i,
-                                     "content" = paste(glue::glue('{a$content}
+  dat <- rbind.data.frame(
+    dat,
+    data.frame("section_long" = i,
+    "content" = paste(glue::glue('{a$content}
 \n\n'), collapse = "")))
 }
 

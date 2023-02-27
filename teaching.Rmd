@@ -1,5 +1,5 @@
 ---
-title: 'Mentorship, Outreach, and Teaching'
+title: 'Open Science, Mentorship, Outreach, and Teaching'
 description: "Teaching"
 ---
 
@@ -61,10 +61,13 @@ for (i in unique(dat0$section_long)) {
 \n\n'), collapse = "")))
 }
 
-dat$img <- c("images/wise.jpg",
+dat$img <- c(
+             "images/openscapes.png",
+             "images/wise.jpg",
              "images/expertisin.jpg", 
              "images/outreach.jpg")
-dat$img_txt <- c("Stony Brook WISE (Women in Science and Engineering) working up some of the day’s data from our mini-study on blue crab temperature-dependent aerobic and anaerobic metabolism.", 
+dat$img_txt <- c("A screenshot of the 2022 AFSC Fall Openscapes cohort over zoom. ", 
+                 "Stony Brook WISE (Women in Science and Engineering) working up some of the day’s data from our mini-study on blue crab temperature-dependent aerobic and anaerobic metabolism.", 
                  "Visiting scientist at the Smithsonian National Museum of Natural History's Expert Is In Program. There, we talked about about how fish are caught in recreational and commercial fisheries, fishing gear, and sustainable seafood.", 
                  "Talking to students at the Wenonah elementary school science fair about some fish most people never get to see." 
                  )

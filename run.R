@@ -1,7 +1,7 @@
 # Metadata ---------------------------------------------------------------------
 # Emily Markowitz' Website
 # Developed by Emily Markowitz, for myself
-# August 2021
+# March 2023
 #
 
 # source("./run.R")
@@ -9,11 +9,7 @@
 # Libraries --------------------------------------------------------------------
 
 PKG <- c(
-  # "distill",
   "glue",
-  # "kableExtra",
-  # "formattable",
-  # "flextable",
   "leaflet",
   "leafpop",
   "rmarkdown",
@@ -31,38 +27,6 @@ for (p in PKG) {
     require(p,character.only = TRUE)}
 }
 
-
-
-# Sign into google drive -------------------------------------------------------
-
-library(googledrive)
-googledrive::drive_deauth()
-googledrive::drive_auth()
-1
-
-# googledrive::drive_download(
-#   file = as_id("1fWyNAjxYFugM44LVqqVdmrndaRDWWBmEERcNrGMKnVI"),
-#   overwrite = TRUE,
-#   path = "./data/data_cv"
-# )
-
-# cv0 <- read_csv(paste0(getwd(), "/data/data_cv.csv"))
-# cv0 <- readxl::read_xlsx(path = "data/data_cv.xlsx",
-#                          sheet = "entries",
-#                          skip = 1)
-
-# # Since you seem to be using R, here is an R-based solution. You need the {readxl}, {purrr}, and {readr} packages. I am “namespacing” all functions, so you know, where they are from. I am using the example Excel file from {readxl}.
-# path_to_xlsx <- "data/data_cv.xlsx"
-# # This Excel file has 4 sheets. The names of the sheets are read by excel_sheets.
-# sheet_names <- readxl::excel_sheets(path_to_xlsx)
-# # Now we import all excel sheets into one list.
-# sheets <- purrr::map(sheet_names, ~ readxl::read_excel(path_to_xlsx, sheet = .x))
-# # We get a list of 4 data.frames or tibbles. Let’s name them.
-# base::names(sheets) <- sheet_names
-# # Now export all tibbles from the list to separate CSVs in one go.
-# purrr::iwalk(sheets, ~ readr::write_excel_csv2(x = .x,
-#                                                file = paste0("data/", .y, ".csv")))
-
 # Load Data --------------------------------------------------------------------
 
 source("cv/functions_cv.R")
@@ -73,12 +37,6 @@ cv_data <- create_CV_object(
 dat0 <- cv_data$entries_data
 
 # Edit Data --------------------------------------------------------------------
-
-
-# Check links
-# checkLinks(cv$img)
-# checkLinks(cv$url)
-# checkLinks(cv$url1)
 
 # Make formatting edits that are difficult to keep in a CSV
 
@@ -194,6 +152,11 @@ cv <-
   CV$entries_data <-
   CV$entries_data %>%
   dplyr::filter(website == TRUE)
+
+# Check links
+# checkLinks(cv$img)
+# checkLinks(cv$url)
+# checkLinks(cv$url1)
 
 sections <- c("about", "index", unique(cv$page))
 

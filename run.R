@@ -1,7 +1,7 @@
 # Metadata ---------------------------------------------------------------------
 # Emily Markowitz' Website
 # Developed by Emily Markowitz, for myself
-# March 2023
+# April 2024
 #
 
 # source("./run.R")
@@ -12,6 +12,7 @@ PKG <- c(
   "glue",
   "leaflet",
   "leafpop",
+  "digest",
   "rmarkdown",
   "dplyr",
   "magrittr",

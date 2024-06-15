@@ -17,6 +17,7 @@ PKG <- c(
   "dplyr",
   "magrittr",
   "pagedown",
+  "googlesheets4",
   "readr",
   "readxl",
   "xml2" # check urls

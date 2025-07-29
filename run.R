@@ -11,6 +11,7 @@
 PKG <- c(
   "glue",
   "leaflet",
+  "maps", 
   "leafpop",
   "digest",
   "rmarkdown",

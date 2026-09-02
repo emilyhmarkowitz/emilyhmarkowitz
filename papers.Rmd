@@ -23,7 +23,7 @@ rmarkdown::render(paste0("./", sections[i], ".Rmd"),
 dat0 <- cv |> 
   dplyr::filter(page %in% "papers") |> 
   dplyr::mutate(content0 = paste0(ifelse(loc == "N/A", "", paste0(loc, ". ")),"**",
-                                   title, ".** ")) |>
+                                   title, ".** ", loc1, ". ")) |>
   dplyr::mutate(content = paste0(loc, ". *", start, "*. **",
                                    title, ".** ")) |>
   # dplyr::mutate(content = ifelse(section != "presentations", content)) |>

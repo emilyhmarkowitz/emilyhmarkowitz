@@ -40,7 +40,6 @@ library(leaflet)
 # library(DT)
 library(leafpop)
 library(maps)
-library(magrittr)
 library(fontawesome) #devtools::install_github("rstudio/fontawesome")
 
 places<-data.frame("place" = c("Hometown", 
@@ -91,10 +90,10 @@ places<-data.frame("place" = c("Hometown",
 
 imgs <- places$img
 
-places %>%
-  leaflet(width = "100%") %>% 
-  addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
-  # addTiles() %>%
+places |>
+  leaflet(width = "100%") |> 
+  addProviderTiles(providers$Esri.NatGeoWorldMap) |>
+  # addTiles() |>
   addCircleMarkers(
     fillOpacity = 0.8, 
     radius = 10,

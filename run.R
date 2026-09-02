@@ -16,7 +16,7 @@ PKG <- c(
   "digest",
   "rmarkdown",
   "dplyr",
-  "magrittr",
+  "tidyr",
   "pagedown",
   "googlesheets4",
   "readr",

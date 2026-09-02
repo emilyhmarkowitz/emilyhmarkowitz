@@ -19,8 +19,8 @@ rmarkdown::render(paste0("./", sections[i], ".Rmd"),
 
 ```{r}
 # # Edit data from CV csv
-dat0 <- cv %>%
-  dplyr::filter(page %in% c("awards")) #%>%
+dat0 <- cv |>
+  dplyr::filter(page %in% c("awards")) #|>
 
 dat0$content <- glue::glue(" - **{dat0$title}**, {dat0$timeline}")
 
@@ -28,7 +28,7 @@ dat <- data.frame()
 
 for (i in unique(dat0$section_long)) {
 
-  a <- dat0 %>%
+  a <- dat0 |>
       dplyr::filter(section_long == i)
 
   dat <- rbind.data.frame(dat,

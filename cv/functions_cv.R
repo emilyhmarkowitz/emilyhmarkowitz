@@ -165,7 +165,7 @@ create_CV_object <-  function(data_location,
     pdf_mode = pdf_mode,
     links = c(),
     cache_data = cache_data
-  ) %>%
+  ) |>
     load_data(data_location, sheet_is_publicly_readable)
 
 
@@ -181,24 +181,24 @@ create_CV_object <-  function(data_location,
     date_month <- stringr::str_extract(dates, "(\\w+|\\d+)(?=(\\s|\\/|-)(20|19)[0-9]{2})")
     date_month[is.na(date_month)] <- "1"
 
-    paste("1", date_month, extract_year(dates), sep = "-") %>%
+    paste("1", date_month, extract_year(dates), sep = "-") |>
       lubridate::dmy()
   }
 
   # # Clean up entries dataframe to format we need it for printing
-  # cv$entries_data %<>%
+  # cv$entries_data |>
   #   tidyr::unite(
   #     tidyr::starts_with('description'),
   #     col = "description_bullets",
   #     sep = "\n- ",
   #     remove = FALSE,
   #     na.rm = TRUE
-  #   ) #%>%
+  #   ) #|>
   #
-  # cv$entries_data %<>%
+  # cv$entries_data |>
   #   dplyr::mutate(
   #     description_bullets =
-  #       ifelse(description_bullets != "", paste0("- ", description_bullets), "")) %>%
+  #       ifelse(description_bullets != "", paste0("- ", description_bullets), "")) |>
   #   dplyr::mutate(
   #     timeline =
   #       dplyr::case_when(grepl(pattern = "[a-zA-Z]+", x = start) ~ start, # in review, in prep, etc.
@@ -207,7 +207,7 @@ create_CV_object <-  function(data_location,
   #                        ((!is.na(start) & !is.na(end)) | (start == end)) ~
   #                          paste0(start, "-", end))
   #
-  #   ) %>%
+  #   ) |>
   #
   #   # start = ifelse(start == "NULL", NA, start),
   #   # end = ifelse(end == "NULL", NA, end),
@@ -224,8 +224,8 @@ create_CV_object <-  function(data_location,
   # #   has_start & no_end  ~ paste("Current", "-", start),
   # #   TRUE                ~ paste(end, "-", start)
   # # )
-  # # ) %>%
-  # dplyr::arrange(desc(parse_dates(end))) %>%
+  # # ) |>
+  # dplyr::arrange(desc(parse_dates(end))) |>
   #   dplyr::mutate_all(~ ifelse(is.na(.), 'N/A', .))
 
   return(cv)
@@ -307,8 +307,8 @@ sanitize_links <- function(cv, text){
       )
 
       # Replace the link destination and remove square brackets for title
-      text <- text %>%
-        stringr::str_replace_all(stringr::fixed(link_superscript_mappings)) %>%
+      text <- text |>
+        stringr::str_replace_all(stringr::fixed(link_superscript_mappings)) |>
         stringr::str_replace_all('\\[(.+?)\\](?=<sup>)', "\\1")
     }
   }
@@ -366,7 +366,7 @@ print_section <- function(cv, section_id, glue_template = "default"){
 #' @description Prints out text block identified by a given label.
 #' @param label ID of the text block to print as encoded in `label` column of `text_blocks` table.
 print_text_block <- function(cv, label){
-  text_block <- dplyr::filter(cv$text_blocks, loc == label) %>%
+  text_block <- dplyr::filter(cv$text_blocks, loc == label) |>
     dplyr::pull(text)
 
   strip_res <- sanitize_links(cv, text_block)
@@ -391,9 +391,9 @@ print_skill_bars <- function(cv, out_of = 5, bar_color = "#969696", bar_backgrou
                                       {bar_background} {width_percent}% 100%);\"
 >{skill}</div>"
   }
-  cv$skills %>%
-    dplyr::mutate(width_percent = round(100*as.numeric(level)/out_of)) %>%
-    glue::glue_data(glue_template) %>%
+  cv$skills |>
+    dplyr::mutate(width_percent = round(100*as.numeric(level)/out_of)) |>
+    glue::glue_data(glue_template) |>
     print()
 
   invisible(cv)
@@ -429,7 +429,7 @@ print_contact_info <- function(cv){
   glue::glue_data(
     cv$contact_info,
     "- <i class='fa fa-{icon}'></i> {contact}"
-  ) %>% print()
+  ) |> print()
 
   invisible(cv)
 }

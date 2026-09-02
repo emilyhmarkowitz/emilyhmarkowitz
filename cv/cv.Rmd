@@ -18,11 +18,10 @@ knitr::opts_chunk$set(results='asis', echo = FALSE)
 ```
 
 ```{r}
-# library(magrittr) # For the pipe
 # source("functions_cv.r")
 CV <- readr::read_rds('cached_positions.rds')
 CV$entries_data <- 
-  CV$entries_data %>%
+  CV$entries_data |>
     dplyr::filter(public_cv == TRUE)
 
 ```
@@ -64,14 +63,14 @@ Contact {#contact}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %>% print_contact_info()
+CV |> print_contact_info()
 ```
 
 Language Skills {#skills}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %>% print_skill_bars()
+CV |> print_skill_bars()
 ```
 
 Disclaimer {#disclaimer}
@@ -87,28 +86,28 @@ Main
 
 ```{r}
 # Note the special double pipe so we modify the CV object in place
-CV %<>% print_text_block("intro") 
+CV |> print_text_block("intro") 
 ```
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('education')
+CV |> print_section('education')
 ```
 
 Work Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('positions')
+CV |> print_section('positions')
 ```
 
 Research {data-icon=fish}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('research')
+CV |> print_section('research')
 ```
 
 Teaching Experience {data-icon=chalkboard-teacher}
@@ -116,40 +115,40 @@ Teaching Experience {data-icon=chalkboard-teacher}
 
 ::: aside
 ```{r}
-CV %<>% print_text_block('teaching_experience_aside')
+CV |> print_text_block('teaching_experience_aside')
 ```
 :::
 
 ```{r}
-CV %<>% print_section('teaching')
+CV |> print_section('teaching')
 ```
 
 Open Science {data-icon=unlock}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('open_sci')
+CV |> print_section('open_sci')
 ```
 
 Mentorship {data-icon=user-plus}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('mentor')
+CV |> print_section('mentor')
 ```
 
 Outreach {data-icon=ship}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('outreach')
+CV |> print_section('outreach')
 ```
 
 Publications  {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('publications')
+CV |> print_section('publications')
 ```
 
 
@@ -157,14 +156,14 @@ Selected Presentations {data-icon=book}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('presentations')
+CV |> print_section('presentations')
 ```
 
 Awards and Scholarships  {data-icon=award}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('awards', 
+CV |> print_section('awards', 
                       glue_template = "list")
 ```
 
@@ -172,7 +171,7 @@ Fellowships  {data-icon=project-diagram}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section(section_id = 'fellowships', 
+CV |> print_section(section_id = 'fellowships', 
                       glue_template = "list")
 
 ```
@@ -181,7 +180,7 @@ Professional Affiliations  {data-icon=school}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section(section_id = 'prof_affil', 
+CV |> print_section(section_id = 'prof_affil', 
                       glue_template = "list")
 ```
 

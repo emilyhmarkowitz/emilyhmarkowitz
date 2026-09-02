@@ -92,7 +92,7 @@ for (i in unique(dat0$section_long)) {
 
 str <- ""
 
-for (i in c("Publications", "Presentations", "Social")){
+for (i in c("Publications", "Presentations", "Webstories and Social Media")){
   
 dat <- dat2 |> 
   dplyr::filter(section_long == i)

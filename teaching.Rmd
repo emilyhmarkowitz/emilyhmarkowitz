@@ -23,8 +23,8 @@ rmarkdown::render(paste0("./", sections[i], ".Rmd"),
 
 
 ```{r}
-dat0 <- cv %>%
-  dplyr::filter(page %in% c("teaching"))  %>%
+dat0 <- cv |>
+  dplyr::filter(page %in% c("teaching"))  |>
   dplyr::mutate(description_bullets = paste0(description_bullets, 
                                              ifelse(is.na(Links_inline),
                                                     "",
@@ -39,7 +39,7 @@ dat1 <- data.frame(section_long = dat0$section_long,
 
 "))
 
-dat1 <- dat1 %>%
+dat1 <- dat1 |>
   dplyr::mutate(content = ifelse(substr(x = content,
                                         start = (nchar(content)-5),
                                         stop = nchar(content)) == "\n -  \n",
@@ -52,7 +52,7 @@ dat <- data.frame()
 
 for (i in unique(dat0$section_long)) {
   
-  a <- dat1 %>% 
+  a <- dat1 |> 
       dplyr::filter(section_long == i) 
   
   dat <- rbind.data.frame(dat, 

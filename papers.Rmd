@@ -20,26 +20,31 @@ rmarkdown::render(paste0("./", sections[i], ".Rmd"),
   
 ```{r}
 
-dat0 <- cv %>% 
-  dplyr::filter(page %in% "papers") %>% 
+dat0 <- cv |> 
+  dplyr::filter(page %in% "papers") |> 
+  dplyr::mutate(content0 = paste0(ifelse(loc == "N/A", "", paste0(loc, ". ")),"**",
+                                   title, ".** ")) |>
   dplyr::mutate(content = paste0(loc, ". *", start, "*. **",
-                                   title, ".** ")) %>%
-  # dplyr::mutate(content = ifelse(section != "presentations", content)) %>%
+                                   title, ".** ")) |>
+  # dplyr::mutate(content = ifelse(section != "presentations", content)) |>
   dplyr::mutate(content = ifelse((section == "publications" & description_1 != "N/A"), 
                                  paste0(content, description_1), 
-                                 content)) %>%
+                                 content)) |>
   dplyr::mutate(content = ifelse((section == "publications" & Links != ""), 
                                  paste0(content, " ", Links, ". "), 
-                                 content)) %>%  
+                                 content)) |>  
   dplyr::mutate(content = ifelse((section == "presentations" & !(is.na(description_bullets))),  
                                  paste0(content, "\n\n", description_bullets), 
-                                 content)) %>%
+                                 content)) |>
   dplyr::mutate(content = ifelse((section == "presentations" & Links_inline != ""), 
                                  paste0(content, "\n\n - ", Links_inline), 
-                                 content)) %>%
+                                 content)) |>
+  dplyr::mutate(content = ifelse((section == "social" & Links != ""), 
+                                 paste0(content0, " ", Links, ". "), 
+                                 content0)) |>  
   dplyr::mutate(content = gsub(pattern = "..", replacement = ".", 
                                x = content, 
-                               fixed = TRUE, useBytes = TRUE)) %>%
+                               fixed = TRUE, useBytes = TRUE)) |>
   dplyr::mutate(content = gsub(pattern = ". .", replacement = ".", 
                                x = content, 
                                fixed = TRUE, useBytes = TRUE))
@@ -48,18 +53,18 @@ dat2 <- data.frame()
 
 for (i in unique(dat0$section_long)) {
 
-  dat1 <- dat0 %>% 
+  dat1 <- dat0 |> 
     dplyr::filter(section_long == i) 
 
   for (ii in unique(dat1$start)) {
 
-    a <- dat1 %>% 
-      dplyr::filter(start == ii) %>%
+    a <- dat1 |> 
+      dplyr::filter(start == ii) |>
       dplyr::mutate(content = paste(glue::glue('{content}
 
-\n\n'), collapse = "")) %>%
-      dplyr::select(content) %>%
-      unique() %>%
+\n\n'), collapse = "")) |>
+      dplyr::select(content) |>
+      unique() |>
       as.character()
     
     dat2 <- rbind.data.frame(dat2, 
@@ -87,9 +92,9 @@ for (i in unique(dat0$section_long)) {
 
 str <- ""
 
-for (i in unique(dat2$section_long)){
+for (i in c("Publications", "Presentations", "Social")){
   
-dat <- dat2 %>% 
+dat <- dat2 |> 
   dplyr::filter(section_long == i)
 
 str <- paste0(str, '

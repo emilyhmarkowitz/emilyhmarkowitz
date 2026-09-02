@@ -22,7 +22,7 @@ rmarkdown::render(paste0("./", sections[i], ".Rmd"),
 
 ```{r}
 # Edit data from CV csv
-dat <- cv %>% 
+dat <- cv |> 
   dplyr::filter(page %in% "experience") 
 ```
 

@@ -159,6 +159,13 @@ Selected Presentations {data-icon=book}
 CV |> print_section('presentations')
 ```
 
+Webstories and Social Media {data-icon=network}
+--------------------------------------------------------------------------------
+
+```{r}
+CV |> print_section('social')
+```
+
 Awards and Scholarships  {data-icon=award}
 --------------------------------------------------------------------------------
 
